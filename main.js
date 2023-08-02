@@ -103,5 +103,3 @@ function randomiseArray(array) {
     }
     return array;
 }
-
-// testing github
