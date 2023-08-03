@@ -42,7 +42,6 @@ bRandomise.addEventListener('click', () => {
 // Start sorting the lines
 bSort.addEventListener('click', () => {
     if(menuSorting.value =="bubblesort") {
-        console.log(sSortSpeed.value)
         bubbleSort.setArray(lines);
         id = setInterval(function() {sortbubble(bubbleSort)}, sSortSpeed.value);
     } else if (menuSorting.value == "bogosort") {
