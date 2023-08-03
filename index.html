@@ -6,13 +6,20 @@
         <link rel="stylesheet" href="style.css">
         <link rel="icon" href="favicon.ico">
         <script src="Scripts/bubblesort.js" async></script>
+        <script src="Scripts/bogosort.js" async></script>
         <script src="main.js" async></script>
     </head>
     <body>
         <div class="buttonbar">
-            <input type="range" min="1" max="20" value="10" class="slider" id="addline">
+            <div>
+                <input type="range" min="1" max="20" value="10" class="slider" id="addline">
+                <button id="randomise">Randomise</button>
+            </div>
             <button id="sort">Sort</button>
-            <button id="randomise">Randomise</button>
+            <select name="sorting-algorithm" id="sorting-algorithm">
+                <option value="bubblesort">Bubblesort</option>
+                <option value="bogosort">Bogosort</option>
+            </select>
         </div>
         <div class="tablecontainer">
             <table class="container">

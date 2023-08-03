@@ -2,6 +2,7 @@
 const sAddLine = document.getElementById("addline");
 const bSort = document.getElementById("sort");
 const bRandomise = document.getElementById("randomise");
+const menuSorting = document.getElementById("sorting-algorithm");
 
 // Container for the lines
 const container = document.getElementById("container");
@@ -14,7 +15,8 @@ let styleSheet = document.createElement("style");
 let styleSheetColor = document.createElement("style");
 
 // Create sorting algorythm objects
-let bubbleSort = new Bubblesort(lines);
+let bubbleSort = new BubbleSort(lines);
+let bogoSort = new BogoSort(lines);
 
 // Set lines when page is loaded
 document.addEventListener('DOMContentLoaded', setLinesToContainer(lines));
@@ -24,7 +26,7 @@ sAddLine.oninput = () => {
     clearInterval(id);
     styleSheetColor.remove();
     lines = [];
-    for(i = 1;i < sAddLine.value; i++) {
+    for(i = 1;i <= sAddLine.value; i++) {
         lines.push(i);
     }
     setLinesToContainer(lines);
@@ -38,8 +40,20 @@ bRandomise.addEventListener('click', () => {
 
 // Start sorting the lines
 bSort.addEventListener('click', () => {
-    bubbleSort.setArray(lines);
-    id = setInterval(function() {sortbubble(bubbleSort)}, 10);
+    if(menuSorting.value =="bubblesort") {
+        bubbleSort.setArray(lines);
+        id = setInterval(function() {sortbubble(bubbleSort)}, 10);
+    } else if (menuSorting.value == "bogosort") {
+        bogoSort.setArray(lines);
+        id = setInterval(function() {
+            if(!bogoSort.isSorted()) {
+                bogoSort.sortOneCycle();
+                setLinesToContainer(bogoSort.getArray());
+            } else {
+                clearInterval(id);
+            }
+        }, 10);
+    }
 });
 
 // Set the lines in the table element according the the array
@@ -69,27 +83,23 @@ function setLinesToContainer(array) {
 // Bubble sort logic
 function sortbubble(bub) {
     let currSort = bub.sortOneCycle();
-    let styles = `
-    .l${currSort[0][0]} {
-        border-left: 20px solid red !important;
-    }
-    .l${currSort[0][1]} {
-        border-left: 20px solid red !important;
-    }`;
-    styleSheetColor.innerText = styles;
-    document.head.appendChild(styleSheetColor);
-
-    setLinesToContainer(bub.getArray());
-}
-
-// Check every 1 second if it is done sorting and stop interval if it is done
-function cancelSort() {
-    if(bubbleSort.isSorted()) {
+    if(currSort != 0) {
+        let styles = `
+        .l${currSort[0][0]} {
+            border-left: 20px solid red !important;
+        }
+        .l${currSort[0][1]} {
+            border-left: 20px solid red !important;
+        }`;
+        styleSheetColor.innerText = styles;
+        document.head.appendChild(styleSheetColor);
+    
+        setLinesToContainer(bub.getArray());
+    } else if(currSort == 0) {
         clearInterval(id);
         styleSheetColor.remove();
     }
 }
-setInterval(cancelSort, 1000);
 
 // Randomise values in array function
 function randomiseArray(array) {
