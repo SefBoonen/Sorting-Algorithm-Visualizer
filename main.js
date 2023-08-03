@@ -3,6 +3,7 @@ const sAddLine = document.getElementById("addline");
 const bSort = document.getElementById("sort");
 const bRandomise = document.getElementById("randomise");
 const menuSorting = document.getElementById("sorting-algorithm");
+const sSortSpeed = document.getElementById("sortspeed");
 
 // Container for the lines
 const container = document.getElementById("container");
@@ -41,8 +42,9 @@ bRandomise.addEventListener('click', () => {
 // Start sorting the lines
 bSort.addEventListener('click', () => {
     if(menuSorting.value =="bubblesort") {
+        console.log(sSortSpeed.value)
         bubbleSort.setArray(lines);
-        id = setInterval(function() {sortbubble(bubbleSort)}, 10);
+        id = setInterval(function() {sortbubble(bubbleSort)}, sSortSpeed.value);
     } else if (menuSorting.value == "bogosort") {
         bogoSort.setArray(lines);
         id = setInterval(function() {
@@ -52,7 +54,7 @@ bSort.addEventListener('click', () => {
             } else {
                 clearInterval(id);
             }
-        }, 10);
+        }, sSortSpeed.value);
     }
 });
 

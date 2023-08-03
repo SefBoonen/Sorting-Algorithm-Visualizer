@@ -5,15 +5,6 @@ class BubbleSort {
         this.swapped = false;
     }
 
-    isSorted() {
-        for(let i = 0; i < this.sort.length - 1; i++) {
-            if (this.sort[i] > this.sort[i + 1]) {
-                return false;
-            }
-        }
-        return true;
-    }
-
     sortOneCycle() {
         let count = this.counter;
         this.counter++;
