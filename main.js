@@ -5,7 +5,7 @@ const bRandomise = document.getElementById("randomise");
 const menuSorting = document.getElementById("sorting-algorithm");
 
 // Container for the lines
-const container = document.getElementById("container");
+const container = document.getElementById("sortspeed");
 
 let lines = [1, 2, 3, 4, 5, 6, 7 , 8, 9, 10];
 let id;
