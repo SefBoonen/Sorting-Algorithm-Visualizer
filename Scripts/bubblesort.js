@@ -5,6 +5,10 @@ class BubbleSort {
         this.swapped = false;
     }
 
+    /**
+     * Sort one cycle bubble sort
+     * @returns Returns 0 if sorted, or [[line[0], line[1]], true] were the lines are the compared lines and the bool is if the lines swapped
+     */
     sortOneCycle() {
         let count = this.counter;
         this.counter++;
