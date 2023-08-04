@@ -69,26 +69,22 @@ bSort.addEventListener('click', () => {
 
 // Set the lines in the table element according the the array
 function setLinesToContainer(array) {
-    container.innerHTML = '';
+    let htmlLines = [];
     let styles = "";
     array.forEach(element => {
-        let htmlLine = 
-        `<td valign="bottom">
-            <div class="l${element}"></div>
-        </td>`;
-        container.innerHTML += htmlLine;
-    
-        styles += `
-        .l${element} {
+        htmlLines.push(`<td valign="bottom"> <div id="l${element}"></div> </td>`);
+        
+        styles += `#l${element} {
             border-left: 20px solid green;
             height: ${element * 20}px;
             width: 0;
             float: left;
             margin: 3px;
         }`;
-        styleSheet.innerText = styles;
-        document.head.appendChild(styleSheet);
     });
+    container.innerHTML = htmlLines.join("");
+    styleSheet.innerText = styles;
+    document.head.appendChild(styleSheet);
 }
 
 // Bubble sort logic
@@ -96,15 +92,15 @@ function sortbubble(bub) {
     let currSort = bub.sortOneCycle();
     if(currSort != 0) {
         let styles = `
-        .l${currSort[0][0]} {
+        #l${currSort[0][0]} {
             border-left: 20px solid red !important;
         }
-        .l${currSort[0][1]} {
+        #l${currSort[0][1]} {
             border-left: 20px solid red !important;
         }`;
         styleSheetColor.innerText = styles;
         document.head.appendChild(styleSheetColor);
-    
+        
         setLinesToContainer(bub.getArray());
     } else if(currSort == 0) {
         clearInterval(id);

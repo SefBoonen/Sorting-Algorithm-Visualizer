@@ -16,7 +16,7 @@ html, body {
 .buttonbar {
     background-color: #333;
     overflow: hidden;
-    padding: 10px;
+    padding: 20px;
     display: flex;
     justify-content: space-around;
 }
@@ -28,4 +28,8 @@ html, body {
 .tablecontainer {
     height: 100%;
     width: 100%;
+}
+
+.container {
+    height:420px;
 }
