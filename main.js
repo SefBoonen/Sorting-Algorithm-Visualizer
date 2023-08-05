@@ -62,7 +62,7 @@ function setLinesToContainer(array) {
             height: ${element * 20}px;
             width: 0;
             float: left;
-            margin: 3px;
+            margin: 1px;
         }`;
     });
     container.innerHTML = htmlLines.join("");
