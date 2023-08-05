@@ -120,3 +120,7 @@ function randomiseArray(array) {
     }
     return array;
 }
+
+function Sleep(ms) {
+	return new Promise(resolve => setTimeout(resolve, ms));
+}
