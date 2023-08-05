@@ -16,7 +16,6 @@ let styleSheet = document.createElement("style");
 let styleSheetColor = document.createElement("style");
 
 // Create sorting algorythm objects
-let bubbleSort = new BubbleSort(lines);
 let bogoSort = new BogoSort(lines);
 let insertionSort = new InsertionSort(lines);
 
@@ -43,8 +42,7 @@ bRandomise.addEventListener('click', () => {
 // Start sorting the lines
 bSort.addEventListener('click', () => {
     if(menuSorting.value =="bubblesort") {
-        booblesort();
-        setLinesToContainer(lines);
+        bubbleSort();
     } else if (menuSorting.value == "bogosort") {
         bogoSort.setArray(lines);
         id = setInterval(function() {
@@ -85,27 +83,6 @@ function setLinesToContainer(array) {
     container.innerHTML = htmlLines.join("");
     styleSheet.innerText = styles;
     document.head.appendChild(styleSheet);
-}
-
-// Bubble sort logic
-function sortbubble(bub) {
-    let currSort = bub.sortOneCycle();
-    if(currSort != 0) {
-        let styles = `
-        #l${currSort[0][0]} {
-            border-left: 20px solid red !important;
-        }
-        #l${currSort[0][1]} {
-            border-left: 20px solid red !important;
-        }`;
-        styleSheetColor.innerText = styles;
-        document.head.appendChild(styleSheetColor);
-        
-        setLinesToContainer(bub.getArray());
-    } else if(currSort == 0) {
-        clearInterval(id);
-        styleSheetColor.remove();
-    }
 }
 
 // Randomise values in array function

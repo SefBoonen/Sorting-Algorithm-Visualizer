@@ -1,41 +1,21 @@
-class BubbleSort {
-    constructor(array) {
-        this.sort = array;
-        this.counter = 0;
-        this.swapped = false;
-    }
-
-    /**
-     * Sort one cycle bubble sort
-     * @returns Returns 0 if sorted, or [[line[0], line[1]], true] were the lines are the compared lines and the bool is if the lines swapped
-     */
-    sortOneCycle() {
-        let count = this.counter;
-        this.counter++;
-        if (count >= this.sort.length - 1) {
-            this.counter = 0;
-            if(!this.swapped) {
-                return 0;
-            }
-            this.swapped = false;
-        }     
-
-        if (this.sort[count] > this.sort[count + 1]) {
-            let tempvar = this.sort[count];
-            this.sort[count] = this.sort[count + 1];
-            this.sort[count + 1] = tempvar;
-            this.swapped = true;
+async function bubbleSort() {
+    for(i = lines.length - 1; i >= 0; i--) {
+        let swapped = false;
+        for(j = 0; j < i; j++) {
             
-            return [[this.sort[count], this.sort[count + 1]], true];
+            if(lines[j] > lines[j + 1]) {
+                await Sleep(100);
+                let swap = lines[j];
+                lines[j] = lines[j + 1];
+                lines[j + 1] = swap;
+                swapped = true;
+                setLinesToContainer(lines);
+                document.getElementById(`l${lines[j]}`).style.borderColor = "black";
+            }
         }
-        return [[this.sort[count], this.sort[count + 1]], false];
-    }
-
-    getArray() {
-        return this.sort;
-    }
-
-    setArray(array) {
-        this.sort = array;
+        if(!swapped) {
+            break;
+        }    
     }
 }
+
