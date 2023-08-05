@@ -42,7 +42,7 @@ bRandomise.addEventListener('click', () => {
 // Start sorting the lines
 bSort.addEventListener('click', () => {
     if(menuSorting.value =="bubblesort") {
-        bubbleSort();
+        bubbleSort(sSortSpeed.value);
     } else if (menuSorting.value == "bogosort") {
         bogoSort.setArray(lines);
         id = setInterval(function() {
@@ -98,6 +98,6 @@ function randomiseArray(array) {
     return array;
 }
 
-function Sleep(ms) {
+function wait(ms) {
 	return new Promise(resolve => setTimeout(resolve, ms));
 }
