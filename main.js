@@ -43,8 +43,8 @@ bRandomise.addEventListener('click', () => {
 // Start sorting the lines
 bSort.addEventListener('click', () => {
     if(menuSorting.value =="bubblesort") {
-        bubbleSort.setArray(lines);
-        id = setInterval(function() {sortbubble(bubbleSort)}, sSortSpeed.value);
+        booblesort();
+        setLinesToContainer(lines);
     } else if (menuSorting.value == "bogosort") {
         bogoSort.setArray(lines);
         id = setInterval(function() {
