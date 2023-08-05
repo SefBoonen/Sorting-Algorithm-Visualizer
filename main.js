@@ -8,6 +8,8 @@ const sSortSpeed = document.getElementById("sortspeed");
 // Container for the lines
 const container = document.getElementById("container");
 
+const sortSpeedNum = document.getElementById("sortspeednum");
+
 let lines = [1, 2, 3, 4, 5, 6, 7 , 8, 9, 10];
 
 //Stylesheet for bars
@@ -16,6 +18,10 @@ let styleSheetColor = document.createElement("style");
 
 // Set lines when page is loaded
 document.addEventListener('DOMContentLoaded', setLinesToContainer(lines));
+
+sSortSpeed.oninput = () => {
+    sortSpeedNum.value = sSortSpeed.value;
+}
 
 // Lines slider 
 sAddLine.oninput = () => {
