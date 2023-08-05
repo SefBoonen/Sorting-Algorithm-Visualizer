@@ -46,7 +46,7 @@ bSort.addEventListener('click', () => {
     } else if (menuSorting.value == "bogosort") {
         bogoSort(sSortSpeed.value);
     } else if (menuSorting.value == "insertionsort") {
-        
+        insertionSort(sSortSpeed.value);
     }
 });
 
