@@ -16,10 +16,11 @@ async function insertionSort(delay) {
                 let swap = sorted[j];
                 sorted[j] = sorted[j - 1];
                 sorted[j - 1] = swap;
-            } 
+            } else {
+                continue;
+            }
             setLinesToContainer(sorted);
         } 
         await wait(delay);
-        
     }
 }
