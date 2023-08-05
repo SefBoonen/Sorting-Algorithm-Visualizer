@@ -14,7 +14,7 @@ async function bubbleSort(delay) {
             }
         }
         if(!swapped) {
-            break;
+            return;
         }    
     }
 }
