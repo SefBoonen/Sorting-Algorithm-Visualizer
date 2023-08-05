@@ -28,7 +28,7 @@ sAddLine.oninput = () => {
     clearInterval(id);
     styleSheetColor.remove();
     lines = [];
-    for(i = 1;i <= sAddLine.value; i++) {
+    for(i = 1; i <= sAddLine.value; i++) {
         lines.push(i);
     }
     setLinesToContainer(lines);
