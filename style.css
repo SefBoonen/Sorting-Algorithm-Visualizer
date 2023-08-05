@@ -33,3 +33,11 @@ html, body {
 .container {
     height:420px;
 }
+
+.lines {
+    display:flex;
+}
+
+.sorting {
+    display:flex;
+}
