@@ -16,7 +16,6 @@ let styleSheet = document.createElement("style");
 let styleSheetColor = document.createElement("style");
 
 // Create sorting algorythm objects
-let bogoSort = new BogoSort(lines);
 let insertionSort = new InsertionSort(lines);
 
 // Set lines when page is loaded
@@ -44,15 +43,7 @@ bSort.addEventListener('click', () => {
     if(menuSorting.value =="bubblesort") {
         bubbleSort(sSortSpeed.value);
     } else if (menuSorting.value == "bogosort") {
-        bogoSort.setArray(lines);
-        id = setInterval(function() {
-            if(!bogoSort.isSorted()) {
-                bogoSort.sortOneCycle();
-                setLinesToContainer(bogoSort.getArray());
-            } else {
-                clearInterval(id);
-            }
-        }, sSortSpeed.value);
+        bogoSort(sSortSpeed.value);
     } else if (menuSorting.value == "insertionsort") {
         insertionSort.setArray(lines);
         id = setInterval(function() {

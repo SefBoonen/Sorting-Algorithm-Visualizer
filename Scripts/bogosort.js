@@ -1,38 +1,16 @@
-class BogoSort {
-    constructor(array) {
-        this.sort = array;
+async function bogoSort(delay) {
+    while(!isSorted()) {
+        await wait(delay);
+        lines = randomiseArray(lines);
+        setLinesToContainer(lines);
     }
+}
 
-    isSorted() {
-        for(let i = 0; i < this.sort.length - 1; i++) {
-            if (this.sort[i] > this.sort[i + 1]) {
-                return false;
-            }
+function isSorted() {
+    for(let i = 0; i < lines.length - 1; i++) {
+        if (lines[i] > lines[i + 1]) {
+            return false;
         }
-        return true;
     }
-
-    sortOneCycle() {
-        this.#randomiseArray(this.sort);
-    }
-
-    getArray() {
-        return this.sort;
-    }
-
-    setArray(array) {
-        this.sort = array;
-    }
-
-    #randomiseArray(array) {
-        let currentIndex = array.length, randomIndex;
-        while(currentIndex != 0) {
-            randomIndex = Math.floor(Math.random() * currentIndex);
-            currentIndex--;
-        
-            [array[currentIndex], array[randomIndex]] = [
-              array[randomIndex], array[currentIndex]];
-        }
-        return array;
-    }
+    return true;
 }
