@@ -10,7 +10,7 @@ const container = document.getElementById("container");
 
 const sortSpeedNum = document.getElementById("sortspeednum");
 
-let lines = [1, 2, 3, 4, 5, 6, 7 , 8, 9, 10];
+let lines = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
 //Stylesheet for bars
 let styleSheet = document.createElement("style");
