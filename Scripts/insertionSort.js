@@ -1,26 +1,28 @@
 async function insertionSort(delay) {
-    let sorted = [];
     for(i = 0; i < lines.length; i++) {
-        
+        document.getElementById(`l${lines[i]}`).style.borderColor = "black";
+        document.getElementById(`l${lines[i + 1]}`).style.borderColor = "black";
         if(lines[i] > lines[i + 1]) {
             let swap = lines[i];
             lines[i] = lines[i + 1];
             lines[i + 1] = swap;
-            sorted.push(lines[i]);
-        } else {
-            sorted.push(lines[i]);
+            await wait(delay);
+            setLinesToContainer(lines);
         }
 
-        for(j = sorted.length; j > 0; j--) {
-            if(sorted[j] < sorted[j - 1]) {
-                let swap = sorted[j];
-                sorted[j] = sorted[j - 1];
-                sorted[j - 1] = swap;
+        for(j = i + 1; j > 0; j--) {
+            document.getElementById(`l${lines[j]}`).style.borderColor = "black";
+            document.getElementById(`l${lines[j + 1]}`).style.borderColor = "black";
+            if(lines[j] < lines[j - 1]) {
+                let swap = lines[j];
+                lines[j] = lines[j - 1];
+                lines[j - 1] = swap;
+                await wait(delay);
+                setLinesToContainer(lines);
             } else {
                 continue;
             }
-            setLinesToContainer(sorted);
         } 
-        await wait(delay);
+        
     }
 }
