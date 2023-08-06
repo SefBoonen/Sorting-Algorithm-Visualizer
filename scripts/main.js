@@ -19,7 +19,7 @@ sSortSpeed.oninput = () => {
     sortSpeedNum.value = sSortSpeed.value;
 }
 
-// Lines slider 
+// Adding and removing Lines slider 
 sAddLine.oninput = () => {
     styleSheetColor.remove();
     lines = [];
@@ -54,7 +54,7 @@ bSort.addEventListener('click', () => {
 function setLinesToContainer(array) {
     let htmlLines = [];
     array.forEach(element => {
-        htmlLines.push(`<td valign="bottom"> <div id="l${element}" style="border-left:20px solid green; height: ${element * 20}px;"></div> </td>`);
+        htmlLines.push(`<td valign="bottom"> <div id="l${element}" style="border-left: 20px solid green; height: ${element * 20}px;"></div> </td>`);
     });
     container.innerHTML = htmlLines.join("");
 }
@@ -72,6 +72,7 @@ function randomiseArray(array) {
     return array;
 }
 
+// Add delay to sorting algorithms
 function wait(ms) {
 	return new Promise(resolve => setTimeout(resolve, ms));
 }
