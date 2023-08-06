@@ -1,5 +1,5 @@
 # Sorting-Algorithm-Visualizer
-Github pages: https://sefboonen.github.io/Sorting-Algorithm-Visualizer/
+Github pages: https://sefboonen.github.io/Sorting-Visualizer/
 
 A javascript based sorting algorithm visualizer
 
