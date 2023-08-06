@@ -21,7 +21,6 @@ sSortSpeed.oninput = () => {
 
 // Adding and removing Lines slider 
 sAddLine.oninput = () => {
-    styleSheetColor.remove();
     lines = [];
     for(i = 1; i <= sAddLine.value; i++) {
         lines.push(i);
