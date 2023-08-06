@@ -1,3 +1,3 @@
-async function mergeSort() {
-    
+async function mergeSort(delay) {
+
 }
