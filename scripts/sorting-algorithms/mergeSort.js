@@ -1,3 +1,0 @@
-async function mergeSort(delay) {
-
-}
