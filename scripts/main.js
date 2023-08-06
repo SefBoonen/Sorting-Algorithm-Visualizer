@@ -12,10 +12,6 @@ const sortSpeedNum = document.getElementById("sortspeednum");
 
 let lines = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
-//Stylesheet for bars
-let styleSheet = document.createElement("style");
-let styleSheetColor = document.createElement("style");
-
 // Set lines when page is loaded
 document.addEventListener('DOMContentLoaded', setLinesToContainer(lines));
 
@@ -57,21 +53,10 @@ bSort.addEventListener('click', () => {
 // Set the lines in the table element according the the array
 function setLinesToContainer(array) {
     let htmlLines = [];
-    let styles = "";
     array.forEach(element => {
-        htmlLines.push(`<td valign="bottom"> <div id="l${element}"></div> </td>`);
-        
-        styles += `#l${element} {
-            border-left: 20px solid green;
-            height: ${element * 20}px;
-            width: 0;
-            float: left;
-            margin: 1px;
-        }`;
+        htmlLines.push(`<td valign="bottom"> <div id="l${element}" style="border-left:20px solid green; height: ${element * 20}px;"></div> </td>`);
     });
     container.innerHTML = htmlLines.join("");
-    styleSheet.innerText = styles;
-    document.head.appendChild(styleSheet);
 }
 
 // Randomise values in array function
