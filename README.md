@@ -8,3 +8,4 @@ The current sorting algorithms are
 - Bogosort
 - Bubblesort
 - Insertionsort
+- Selectionsort
