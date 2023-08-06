@@ -7,6 +7,7 @@ async function selectionSort(delay) {
             document.getElementById(`l${lines[indexswap]}`).style.borderColor = "red";
             await wait(delay);
             setLinesToContainer(lines);
+            document.getElementById(`l${lines[i]}`).style.borderColor = "yellow";
             if(lines[j] < smallest) {
                 smallest = lines[j];
                 indexswap = j;
