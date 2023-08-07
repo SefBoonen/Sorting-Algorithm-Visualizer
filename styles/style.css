@@ -40,3 +40,12 @@ body {
     display: flex;
     flex-direction: column;
 }
+
+.sortbutton {
+    background: #4CAF50;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+}
