@@ -1,23 +1,26 @@
-async function mergeSort(delay) {
-    console.log(merge(lines, lines1));
+async function mergeSort(arr, delay) {
+    if(arr.length <= 1) {
+        return arr;
+    }
+
+    let mid = Math.floor(arr.length / 2);
+
+    let left = await mergeSort(arr.slice(0, mid));
+    let right = await mergeSort(arr.slice(mid));
+
+    return merge(left, right);
 }
 
 function merge(arr1, arr2) {
     let sorted = [];
 
-    while(arr1.length > 0 && arr2.length > 0) {
+    while(arr1.length && arr2.length) {
         if(arr1[0] < arr2[0]) {
             sorted.push(arr1.shift());
-        } else if (arr2[0] < arr1[0]) {
+        } else {
             sorted.push(arr2.shift());
         }
     }
 
-    if(arr1.length < 1) {
-        sorted = sorted.concat(arr2)
-    } else if (arr2.length < 1) {
-        sorted = sorted.concat(arr1)
-    }
-
-    return sorted;
+    return [...sorted, ...arr1, ...arr2];
 }
