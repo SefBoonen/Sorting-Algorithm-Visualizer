@@ -13,7 +13,7 @@ const sortSpeedNum = document.getElementById("sortspeednum");
 let lines = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
 // Set lines when page is loaded
-document.addEventListener('DOMContentLoaded', setLinesToContainer(lines));
+document.addEventListener('DOMContentLoaded', addLines(lines));
 
 sSortSpeed.oninput = () => {
     sortSpeedNum.value = sSortSpeed.value;
@@ -21,6 +21,10 @@ sSortSpeed.oninput = () => {
 
 // Adding and removing Lines slider 
 sAddLine.oninput = () => {
+    addLines();
+}
+
+function addLines() {
     lines = [];
     for(i = 1; i <= sAddLine.value; i++) {
         lines.push(i);
@@ -51,7 +55,7 @@ bSort.addEventListener('click', () => {
 function setLinesToContainer(array) {
     let htmlLines = [];
     array.forEach(element => {
-        htmlLines.push(`<td valign="bottom"> <div id="l${element}" style="border-left: 20px solid green; height: ${element * 20}px;"></div> </td>`);
+        htmlLines.push(`<td valign="bottom"> <div id="l${element}" style="border-left: 15px solid green; height: ${element * 8.8}px;"></div> </td>`);
     });
     container.innerHTML = htmlLines.join("");
 }
