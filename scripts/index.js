@@ -49,7 +49,7 @@ bSort.addEventListener('click', () => {
     } else if (menuSorting.value == "selectionsort") {
         selectionSort(sSortSpeed.value);
     } else if (menuSorting.value == "mergesort") {
-        console.log(mergeSort([5, 1, 3, 6, 7, 2]));
+        mergeSort(sSortSpeed.value);
     }
 });
 
