@@ -13,9 +13,17 @@
         <script src="scripts/index.js" defer></script>
     </head>
     <body>
+        <div class="tablecontainer">
+            <table class="container">
+                <tbody>
+                    <tr id ="container">
+                    </tr>
+                </tbody>
+            </table>
+        </div>
         <div class="buttonbar">
             <div class="lines">
-                <input autocomplete="off" defaultValue="10" type="range" min="2" max="40" value="10" id="addline">
+                <input autocomplete="off" defaultValue="10" type="range" min="2" max="100" value="100" id="addline">
                 <button id="randomise">Randomise</button>
             </div>
             <div class="sorting">
@@ -30,14 +38,6 @@
                 <option value="selectionsort">Selectionsort</option>
                 <option value="quicksort">Quicksort</option>
             </select>
-        </div>
-        <div class="tablecontainer">
-            <table class="container">
-                <tbody>
-                    <tr id ="container">
-                    </tr>
-                </tbody>
-            </table>
         </div>
     </body>
 </html>
