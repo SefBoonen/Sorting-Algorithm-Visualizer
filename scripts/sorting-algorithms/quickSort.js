@@ -1,5 +1,5 @@
-function quickSort(arr, delay = 0) {
-    if(arr.length <= 1) {
+async function quickSort(arr, delay = 0) {
+    if(arr.length = 1) {
         return arr;
     }
 
@@ -16,8 +16,9 @@ function quickSort(arr, delay = 0) {
         }
     }
 
-    left = quickSort(left);
-    right = quickSort(right);
+    quickSort(left);
+    quickSort(right);
 
+    console.log([...left, pivot, ...right]);
     return [...left, pivot, ...right];
 }
