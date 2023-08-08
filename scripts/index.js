@@ -49,7 +49,8 @@ bSort.addEventListener('click', () => {
     } else if (menuSorting.value == "selectionsort") {
         selectionSort(sSortSpeed.value);
     } else if (menuSorting.value == "quicksort") {
-        quickSort(sSortSpeed.value);
+        quickSort(0, lines.length - 1);
+        console.log(lines);
     }
 });
 
