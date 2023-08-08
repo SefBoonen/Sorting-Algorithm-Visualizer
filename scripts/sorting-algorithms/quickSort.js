@@ -6,15 +6,21 @@ async function partition(delay, low, high) {
     for(let j = low; j < high; j++) {
         if(lines[j] < pivot) {
             i++;
+            document.getElementById(`l${lines[i]}`).style.borderColor = "red";
+            document.getElementById(`l${lines[j]}`).style.borderColor = "red";
             [lines[i], lines[j]] = [lines[j], lines[i]];
+            await wait(delay);
             setLinesToContainer(lines);
-            await wait(delay)
+            
         }
     }
+    document.getElementById(`l${lines[i + 1]}`).style.borderColor = "red";
+    document.getElementById(`l${lines[high]}`).style.borderColor = "red";
 
     [lines[i + 1], lines[high]] = [lines[high], lines[i + 1]]; 
+    await wait(delay);
     setLinesToContainer(lines);
-    await wait(delay)
+    
     return i + 1;
 }
 
