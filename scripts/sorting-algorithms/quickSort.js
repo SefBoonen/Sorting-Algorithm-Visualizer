@@ -1,4 +1,4 @@
-async function quickSort(arr, delay = 0) {
+function quickSort(arr, delay = 0) {
     if(arr.length = 1) {
         return arr;
     }
