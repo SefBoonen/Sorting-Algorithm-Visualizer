@@ -1,4 +1,4 @@
-function partition(low, high) {
+async function partition(delay, low, high) {
     let pivot = lines[high];
 
     let i = low - 1;
@@ -8,19 +8,21 @@ function partition(low, high) {
             i++;
             [lines[i], lines[j]] = [lines[j], lines[i]];
             setLinesToContainer(lines);
+            await wait(delay)
         }
     }
 
     [lines[i + 1], lines[high]] = [lines[high], lines[i + 1]]; 
     setLinesToContainer(lines);
+    await wait(delay)
     return i + 1;
 }
 
-function quickSort(low, high) {
+async function quickSort(delay, low, high) {
     if(low < high) {
-        let pi = partition(low, high);
+        let pi = await partition(delay, low, high);
 
-        quickSort(low, pi - 1);
-        quickSort(pi + 1, high);
+        await quickSort(delay, low, pi - 1);
+        await quickSort(delay, pi + 1, high);
     }
 }
