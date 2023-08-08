@@ -48,6 +48,8 @@ bSort.addEventListener('click', () => {
         insertionSort(sSortSpeed.value);
     } else if (menuSorting.value == "selectionsort") {
         selectionSort(sSortSpeed.value);
+    } else if (menuSorting.value == "quicksort") {
+        quickSort(sSortSpeed.value, 0, lines.length - 1);
     } else if (menuSorting.value == "mergesort") {
         mergeSort(sSortSpeed.value);
     }
