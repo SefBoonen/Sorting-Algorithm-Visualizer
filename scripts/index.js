@@ -51,7 +51,7 @@ bSort.addEventListener('click', () => {
     } else if (menuSorting.value == "quicksort") {
         quickSort(sSortSpeed.value, 0, lines.length - 1);
     } else if (menuSorting.value == "mergesort") {
-        mergeSort(sSortSpeed.value);
+        merge(0, 2, 3, 5);
     }
 });
 

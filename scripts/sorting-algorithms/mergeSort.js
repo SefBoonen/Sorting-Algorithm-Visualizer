@@ -11,16 +11,20 @@ async function mergeSort(arr, delay) {
     return merge(left, right);
 }
 
-function merge(arr1, arr2) {
-    let sorted = [];
-
-    while(arr1.length && arr2.length) {
-        if(arr1[0] < arr2[0]) {
-            sorted.push(arr1.shift());
+function merge(low1, high1, low2, high2) {
+    let lines = [7,8,9,1,5,10];
+    let cpy = lines.slice();
+    
+    while(low1 <= high1 && low2 <= high2) {
+        if(cpy[low1] < cpy[low2]) {
+            lines.splice(lines.indexOf(cpy[low1]), 1);
+            lines.push(cpy[low1])
+            low1++;
         } else {
-            sorted.push(arr2.shift());
+            lines.splice(lines.indexOf(cpy[low2]), 1);
+            lines.push(cpy[low2])
+            low2++;
         }
+        console.log(lines);
     }
-
-    return [...sorted, ...arr1, ...arr2];
 }
