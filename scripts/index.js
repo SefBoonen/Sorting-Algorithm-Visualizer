@@ -10,7 +10,7 @@ const container = document.getElementById("container");
 
 const sortSpeedNum = document.getElementById("sortspeednum");
 
-let lines = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+let lines = [];
 
 // Set lines when page is loaded
 document.addEventListener('DOMContentLoaded', addLines(lines));
@@ -48,6 +48,10 @@ bSort.addEventListener('click', () => {
         insertionSort(sSortSpeed.value);
     } else if (menuSorting.value == "selectionsort") {
         selectionSort(sSortSpeed.value);
+    } else if (menuSorting.value == "quicksort") {
+        quickSort(sSortSpeed.value, 0, lines.length - 1);
+    } else if (menuSorting.value == "mergesort") {
+        mergeSort(0, lines.length - 1, sSortSpeed.value);
     }
 });
 

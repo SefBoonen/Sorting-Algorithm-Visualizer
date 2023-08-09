@@ -9,3 +9,5 @@ The current sorting algorithms are:
 - Bubblesort
 - Insertionsort
 - Selectionsort
+- Quicksort
+- Mergesort

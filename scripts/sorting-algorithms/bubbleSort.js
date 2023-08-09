@@ -6,9 +6,7 @@ async function bubbleSort(delay) {
                 document.getElementById(`l${lines[j]}`).style.borderColor = "red";
                 document.getElementById(`l${lines[j + 1]}`).style.borderColor = "red";
                 await wait(delay);
-                let swap = lines[j];
-                lines[j] = lines[j + 1];
-                lines[j + 1] = swap;
+                [lines[j], lines[j + 1]] = [lines[j + 1], lines[j]];
                 swapped = true;
                 setLinesToContainer(lines);
             }
