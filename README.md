@@ -10,3 +10,4 @@ The current sorting algorithms are:
 - Insertionsort
 - Selectionsort
 - Quicksort
+- Mergesort
