@@ -1,36 +1,40 @@
-function Slide_down(l, r) {
-	let temp = lines[r];
-	for (let i = r - 1; i >= l; i--) {
-		lines[i + 1] = lines[i];
+function Slide_down(left, right) {
+	let temp = lines[right];
+
+	for (let i = right; i > left; i--) {
+		lines[i] = lines[i - 1];
 	}
-	lines[l] = temp;
+
+	lines[left] = temp;
 }
 
-async function merge(l, m, r, d) {
-	let i = l;
-	let j = m + 1;
+async function merge(left, mid, right, delay) {
+	let i = left;
+	let j = mid + 1;
 
-	while (i < j && j <= r) {
+	while (i < j && j <= right) {
 		let a = lines[j];
 		let b = lines[i];
+        document.getElementById(`l${lines[j]}`).style.borderColor = "red";
+        document.getElementById(`l${lines[i]}`).style.borderColor = "red";
 		if (a > b) i++;
 		else {
 			Slide_down(i, j);
 			i++; 
             j++;
 		}
-		await wait(d / 2.0);
+		await wait(delay);
 		setLinesToContainer(lines);
-		await wait(d / 2.0);
 	}
 }
 
 
-async function mergeSort(l, r, d) {
-	if (l < r) {
-		let m = parseInt(l + (r - l) / 2);
-		await mergeSort(l, m, d);
-		await mergeSort(m + 1, r, d);
-		await merge(l, m, r, d);
+async function mergeSort(left, right, delay) {
+	if (left < right) {
+		let mid = parseInt(left + (right - left) / 2);
+
+		await mergeSort(left, mid, delay);
+		await mergeSort(mid + 1, right, delay);
+		await merge(left, mid, right, delay);
 	}
 }
