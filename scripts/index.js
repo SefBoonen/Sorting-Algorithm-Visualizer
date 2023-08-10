@@ -8,6 +8,9 @@ const sSortSpeed = document.getElementById("sortspeed");
 // Container for the lines
 const container = document.getElementById("container");
 
+const heightContainer = container.clientHeight * 0.95;
+const widthContainer = container.clientWidth * 0.8;
+
 const sortSpeedNum = document.getElementById("sortspeednum");
 
 let lines = [];
@@ -59,7 +62,7 @@ bSort.addEventListener('click', () => {
 function setLinesToContainer(array) {
     let htmlLines = [];
     array.forEach(element => {
-        htmlLines.push(`<td valign="bottom"> <div id="l${element}" style="border-left: 15px solid green; height: ${element * 8.8}px;"></div> </td>`);
+        htmlLines.push(`<td valign="bottom"> <div id="l${element}" style="border-left: ${widthContainer / 100}px solid green; height: ${(heightContainer / 100) * element}px;"></div> </td>`);
     });
     container.innerHTML = htmlLines.join("");
 }
