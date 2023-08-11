@@ -4,6 +4,7 @@ const bSort = document.getElementById("sort");
 const bRandomise = document.getElementById("randomise");
 const sSortSpeed = document.getElementById("sortspeed");
 const menuSorting = document.getElementById("sorting-algorithm");
+const bStop = document.getElementById("stop");
 
 const container = document.getElementById("container");
 
@@ -13,6 +14,8 @@ const widthContainer = screen.width * 0.8;
 const sortSpeedNum = document.getElementById("sortspeednum");
 
 let lines = [];
+
+let stop = false;
 
 // Set lines when page is loaded
 document.addEventListener('DOMContentLoaded', addLines(lines));
@@ -33,6 +36,10 @@ function addLines() {
     }
     setLinesToContainer(lines);
 }
+
+bStop.addEventListener("click", () => {
+    stop = true;
+});
 
 // Randomise lines button
 bRandomise.addEventListener('click', () => {
