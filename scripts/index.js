@@ -2,9 +2,10 @@
 const sAddLine = document.getElementById("addline");
 const bSort = document.getElementById("sort");
 const bRandomise = document.getElementById("randomise");
-const sSortSpeed = document.getElementById("sortspeed");
 const menuSorting = document.getElementById("sorting-algorithm");
+const sSortSpeed = document.getElementById("sortspeed");
 
+// Container for the lines
 const container = document.getElementById("container");
 
 const heightContainer = container.clientHeight * 0.95;
@@ -41,22 +42,20 @@ bRandomise.addEventListener('click', () => {
 });
 
 // Start sorting the lines
-bSort.addEventListener('click', async () => {
-    setDisabledInputs(true);
+bSort.addEventListener('click', () => {
     if(menuSorting.value =="bubblesort") {
-        await bubbleSort(sSortSpeed.value);
+        bubbleSort(sSortSpeed.value);
     } else if (menuSorting.value == "bogosort") {
-        await bogoSort(sSortSpeed.value);
+        bogoSort(sSortSpeed.value);
     } else if (menuSorting.value == "insertionsort") {
-        await insertionSort(sSortSpeed.value);
+        insertionSort(sSortSpeed.value);
     } else if (menuSorting.value == "selectionsort") {
-        await selectionSort(sSortSpeed.value);
+        selectionSort(sSortSpeed.value);
     } else if (menuSorting.value == "quicksort") {
-        await quickSort(sSortSpeed.value, 0, lines.length - 1);
+        quickSort(sSortSpeed.value, 0, lines.length - 1);
     } else if (menuSorting.value == "mergesort") {
-        await mergeSort(0, lines.length - 1, sSortSpeed.value);
+        mergeSort(0, lines.length - 1, sSortSpeed.value);
     }
-    setDisabledInputs(false);
 });
 
 // Set the lines in the table element according the the array
@@ -84,12 +83,4 @@ function randomiseArray(array) {
 // Add delay to sorting algorithms
 function wait(ms) {
 	return new Promise(resolve => setTimeout(resolve, ms));
-}
-
-function setDisabledInputs(bool) {
-    sAddLine.disabled = bool;
-    bSort.disabled = bool;
-    bRandomise.disabled = bool;
-    sSortSpeed.disabled = bool;
-    menuSorting.disabled = bool;
 }
