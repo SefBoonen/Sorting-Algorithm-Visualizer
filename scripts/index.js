@@ -7,8 +7,8 @@ const menuSorting = document.getElementById("sorting-algorithm");
 
 const container = document.getElementById("container");
 
-const heightContainer = container.clientHeight * 0.95;
-const widthContainer = container.clientWidth * 0.8;
+const heightContainer = screen.height * 0.8;
+const widthContainer = screen.width * 0.8;
 
 const sortSpeedNum = document.getElementById("sortspeednum");
 
