@@ -2,10 +2,9 @@
 const sAddLine = document.getElementById("addline");
 const bSort = document.getElementById("sort");
 const bRandomise = document.getElementById("randomise");
-const menuSorting = document.getElementById("sorting-algorithm");
 const sSortSpeed = document.getElementById("sortspeed");
+const menuSorting = document.getElementById("sorting-algorithm");
 
-// Container for the lines
 const container = document.getElementById("container");
 
 const heightContainer = container.clientHeight * 0.95;
@@ -42,20 +41,22 @@ bRandomise.addEventListener('click', () => {
 });
 
 // Start sorting the lines
-bSort.addEventListener('click', () => {
+bSort.addEventListener('click', async () => {
+    setDisabledInputs(true);
     if(menuSorting.value =="bubblesort") {
-        bubbleSort(sSortSpeed.value);
+        await bubbleSort(sSortSpeed.value);
     } else if (menuSorting.value == "bogosort") {
-        bogoSort(sSortSpeed.value);
+        await bogoSort(sSortSpeed.value);
     } else if (menuSorting.value == "insertionsort") {
-        insertionSort(sSortSpeed.value);
+        await insertionSort(sSortSpeed.value);
     } else if (menuSorting.value == "selectionsort") {
-        selectionSort(sSortSpeed.value);
+        await selectionSort(sSortSpeed.value);
     } else if (menuSorting.value == "quicksort") {
-        quickSort(sSortSpeed.value, 0, lines.length - 1);
+        await quickSort(sSortSpeed.value, 0, lines.length - 1);
     } else if (menuSorting.value == "mergesort") {
-        mergeSort(0, lines.length - 1, sSortSpeed.value);
+        await mergeSort(0, lines.length - 1, sSortSpeed.value);
     }
+    setDisabledInputs(false);
 });
 
 // Set the lines in the table element according the the array
@@ -83,4 +84,12 @@ function randomiseArray(array) {
 // Add delay to sorting algorithms
 function wait(ms) {
 	return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+function setDisabledInputs(bool) {
+    sAddLine.disabled = bool;
+    bSort.disabled = bool;
+    bRandomise.disabled = bool;
+    sSortSpeed.disabled = bool;
+    menuSorting.disabled = bool;
 }
