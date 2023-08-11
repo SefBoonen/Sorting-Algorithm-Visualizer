@@ -13,6 +13,9 @@ async function merge(left, mid, right, delay) {
 	let j = mid + 1;
 
 	while (i < j && j <= right) {
+		if(stop) {
+			return;
+		}
 		let a = lines[j];
 		let b = lines[i];
         document.getElementById(`l${lines[j]}`).style.borderColor = "red";

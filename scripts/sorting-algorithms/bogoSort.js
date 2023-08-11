@@ -1,5 +1,8 @@
 async function bogoSort(delay) {
     while(!isSorted()) {
+        if(stop) {
+            return;
+        }
         await wait(delay);
         lines = randomiseArray(lines);
         setLinesToContainer(lines);

@@ -3,11 +3,14 @@ async function selectionSort(delay) {
     let indexswap = 0;
     for(i = 0; i < lines.length; i++) {
         for(j = i; j < lines.length; j++) {
+            if(stop) {
+                return;
+            }
             document.getElementById(`l${lines[j]}`).style.borderColor = "red";
             document.getElementById(`l${lines[indexswap]}`).style.borderColor = "red";
+            document.getElementById(`l${lines[i]}`).style.borderColor = "yellow";
             await wait(delay);
             setLinesToContainer(lines);
-            document.getElementById(`l${lines[i]}`).style.borderColor = "yellow";
             if(lines[j] < smallest) {
                 smallest = lines[j];
                 indexswap = j;

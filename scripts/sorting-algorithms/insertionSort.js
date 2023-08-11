@@ -1,5 +1,8 @@
 async function insertionSort(delay) {
     for(i = 1; i < lines.length; i++) {
+        if(stop) {
+            return;
+        }
         let key = lines[i];
         j = i - 1;
 

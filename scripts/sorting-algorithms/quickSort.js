@@ -4,6 +4,9 @@ async function partition(delay, low, high) {
     let i = low - 1;
 
     for(let j = low; j < high; j++) {
+        if(stop) {
+            return;
+        }
         if(lines[j] < pivot) {
             i++;
             document.getElementById(`l${lines[i]}`).style.borderColor = "red";

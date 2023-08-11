@@ -39,6 +39,9 @@ function addLines() {
 
 bStop.addEventListener("click", () => {
     stop = true;
+    setTimeout(() => {
+        stop = false;
+    }, 1000);
 });
 
 // Randomise lines button
