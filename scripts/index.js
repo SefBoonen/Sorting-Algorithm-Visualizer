@@ -1,3 +1,5 @@
+import { bubbleSort } from "./sorting-algorithms/bubbleSort.js";
+
 // In input variables
 const sAddLine = document.getElementById("addline");
 const bSort = document.getElementById("sort");
@@ -13,9 +15,9 @@ const widthContainer = screen.width * 0.8;
 
 const sortSpeedNum = document.getElementById("sortspeednum");
 
-let lines = [];
+export let lines = [];
 
-let stop = false;
+export let stop = false;
 
 // Set lines when page is loaded
 document.addEventListener('DOMContentLoaded', addLines(lines));
@@ -31,7 +33,7 @@ sAddLine.oninput = () => {
 
 function addLines() {
     lines = [];
-    for(i = 1; i <= sAddLine.value; i++) {
+    for(let i = 1; i <= sAddLine.value; i++) {
         lines.push(i);
     }
     setLinesToContainer(lines);
@@ -54,6 +56,7 @@ bRandomise.addEventListener('click', () => {
 bSort.addEventListener('click', async () => {
     setDisabledInputs(true);
     if(menuSorting.value =="bubblesort") {
+        console.log("works")
         await bubbleSort(sSortSpeed.value);
     } else if (menuSorting.value == "bogosort") {
         await bogoSort(sSortSpeed.value);
@@ -70,7 +73,7 @@ bSort.addEventListener('click', async () => {
 });
 
 // Set the lines in the table element according the the array
-function setLinesToContainer(array) {
+export function setLinesToContainer(array) {
     let htmlLines = [];
     array.forEach(element => {
         htmlLines.push(`<td valign="bottom"> <div id="l${element}" style="border-left: ${widthContainer / 100}px solid green; height: ${(heightContainer / 100) * element}px;"></div> </td>`);
