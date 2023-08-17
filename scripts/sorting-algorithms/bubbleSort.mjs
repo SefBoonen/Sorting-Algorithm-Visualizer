@@ -1,7 +1,9 @@
+import { lines, setLinesToContainer, wait, stop } from '../index.js';
+
 async function bubbleSort(delay) {
-    for(i = lines.length - 1; i >= 0; i--) {
+    for(let i = lines.length - 1; i >= 0; i--) {
         let swapped = false;
-        for(j = 0; j < i; j++) {
+        for(let j = 0; j < i; j++) {
             if(stop) {
                 return;
             }
@@ -20,3 +22,4 @@ async function bubbleSort(delay) {
     }
 }
 
+export { bubbleSort };

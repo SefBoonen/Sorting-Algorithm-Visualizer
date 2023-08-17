@@ -1,3 +1,5 @@
+import { bubbleSort } from "./sorting-algorithms/bubbleSort.mjs";
+
 // In input variables
 const sAddLine = document.getElementById("addline");
 const bSort = document.getElementById("sort");
@@ -31,7 +33,7 @@ sAddLine.oninput = () => {
 
 function addLines() {
     lines = [];
-    for(i = 1; i <= sAddLine.value; i++) {
+    for(let i = 1; i <= sAddLine.value; i++) {
         lines.push(i);
     }
     setLinesToContainer(lines);
@@ -103,3 +105,5 @@ function setDisabledInputs(bool) {
     sSortSpeed.disabled = bool;
     menuSorting.disabled = bool;
 }
+
+export { lines, setLinesToContainer, wait, stop };
