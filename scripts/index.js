@@ -1,4 +1,5 @@
 import { bubbleSort } from "./sorting-algorithms/bubbleSort.mjs";
+import { bogoSort } from "./sorting-algorithms/bogoSort.mjs";
 
 // In input variables
 const sAddLine = document.getElementById("addline");
@@ -106,4 +107,4 @@ function setDisabledInputs(bool) {
     menuSorting.disabled = bool;
 }
 
-export { lines, setLinesToContainer, wait, stop };
+export { lines, setLinesToContainer, wait, stop, randomiseArray };

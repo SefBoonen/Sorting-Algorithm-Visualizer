@@ -1,3 +1,5 @@
+import { lines, setLinesToContainer, wait, stop, randomiseArray } from '../index.js';
+
 async function bogoSort(delay) {
     while(!isSorted()) {
         if(stop) {
@@ -17,3 +19,5 @@ function isSorted() {
     }
     return true;
 }
+
+export { bogoSort };
