@@ -1,4 +1,4 @@
-import { bubbleSort } from "./sorting-algorithms/bubbleSort.js";
+import { bubbleSort } from "./sorting-algorithms/bubbleSort.mjs";
 
 // In input variables
 const sAddLine = document.getElementById("addline");
@@ -15,9 +15,9 @@ const widthContainer = screen.width * 0.8;
 
 const sortSpeedNum = document.getElementById("sortspeednum");
 
-export let lines = [];
+let lines = [];
 
-export let stop = false;
+let stop = false;
 
 // Set lines when page is loaded
 document.addEventListener('DOMContentLoaded', addLines(lines));
@@ -56,24 +56,13 @@ bRandomise.addEventListener('click', () => {
 bSort.addEventListener('click', async () => {
     setDisabledInputs(true);
     if(menuSorting.value =="bubblesort") {
-        console.log("works")
         await bubbleSort(sSortSpeed.value);
-    } else if (menuSorting.value == "bogosort") {
-        await bogoSort(sSortSpeed.value);
-    } else if (menuSorting.value == "insertionsort") {
-        await insertionSort(sSortSpeed.value);
-    } else if (menuSorting.value == "selectionsort") {
-        await selectionSort(sSortSpeed.value);
-    } else if (menuSorting.value == "quicksort") {
-        await quickSort(sSortSpeed.value, 0, lines.length - 1);
-    } else if (menuSorting.value == "mergesort") {
-        await mergeSort(0, lines.length - 1, sSortSpeed.value);
     }
     setDisabledInputs(false);
 });
 
 // Set the lines in the table element according the the array
-export function setLinesToContainer(array) {
+function setLinesToContainer(array) {
     let htmlLines = [];
     array.forEach(element => {
         htmlLines.push(`<td valign="bottom"> <div id="l${element}" style="border-left: ${widthContainer / 100}px solid green; height: ${(heightContainer / 100) * element}px;"></div> </td>`);
@@ -106,3 +95,5 @@ function setDisabledInputs(bool) {
     sSortSpeed.disabled = bool;
     menuSorting.disabled = bool;
 }
+
+export { lines, setLinesToContainer, stop, wait }
