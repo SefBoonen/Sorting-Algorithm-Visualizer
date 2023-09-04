@@ -1,3 +1,6 @@
+.selected {
+    background-color: red;
+}
 
 .container {
     margin-left: auto;
