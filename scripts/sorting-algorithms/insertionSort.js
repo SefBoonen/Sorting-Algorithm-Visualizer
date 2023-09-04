@@ -7,8 +7,8 @@ async function insertionSort(delay) {
         j = i - 1;
 
         while (j >= 0 && lines[j] > key) {
-            document.getElementById(`l${lines[j]}`).style.borderColor = "red";
-            document.getElementById(`l${lines[j + 1]}`).style.borderColor = "red";
+            document.getElementById(`l${lines[j]}`).className = "selected";
+            document.getElementById(`l${lines[j + 1]}`).className = "selected";
             await wait(delay);
             lines[j + 1] = lines[j];
             j--;

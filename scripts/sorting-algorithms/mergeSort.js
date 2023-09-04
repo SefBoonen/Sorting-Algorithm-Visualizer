@@ -18,8 +18,8 @@ async function merge(left, mid, right, delay) {
 		}
 		let a = lines[j];
 		let b = lines[i];
-		document.getElementById(`l${lines[j]}`).style.borderColor = "red";
-		document.getElementById(`l${lines[i]}`).style.borderColor = "red";
+		document.getElementById(`l${lines[j]}`).className = "selected";
+		document.getElementById(`l${lines[i]}`).className = "selected";
 		if (a > b) i++;
 		else {
 			Slide_down(i, j);

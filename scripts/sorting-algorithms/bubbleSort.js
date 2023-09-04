@@ -6,8 +6,8 @@ async function bubbleSort(delay) {
                 return;
             }
             if (lines[j] > lines[j + 1]) {
-                document.getElementById(`l${lines[j]}`).style.borderColor = "red";
-                document.getElementById(`l${lines[j + 1]}`).style.borderColor = "red";
+                document.getElementById(`l${lines[j]}`).className = "selected";
+                document.getElementById(`l${lines[j + 1]}`).className = "selected";
                 await wait(delay);
                 [lines[j], lines[j + 1]] = [lines[j + 1], lines[j]];
                 swapped = true;

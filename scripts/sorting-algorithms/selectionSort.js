@@ -6,8 +6,8 @@ async function selectionSort(delay) {
             if (stop) {
                 return;
             }
-            document.getElementById(`l${lines[j]}`).style.borderColor = "red";
-            document.getElementById(`l${lines[indexswap]}`).style.borderColor = "red";
+            document.getElementById(`l${lines[j]}`).className = "selected";
+            document.getElementById(`l${lines[indexswap]}`).className = "selected";
             document.getElementById(`l${lines[i]}`).style.borderColor = "yellow";
             await wait(delay);
             setLinesToContainer(lines);

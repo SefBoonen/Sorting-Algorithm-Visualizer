@@ -9,16 +9,16 @@ async function partition(delay, low, high) {
         }
         if (lines[j] < pivot) {
             i++;
-            document.getElementById(`l${lines[i]}`).style.borderColor = "red";
-            document.getElementById(`l${lines[j]}`).style.borderColor = "red";
+            document.getElementById(`l${lines[i]}`).className = "selected";
+            document.getElementById(`l${lines[j]}`).className = "selected";
             [lines[i], lines[j]] = [lines[j], lines[i]];
             await wait(delay);
             setLinesToContainer(lines);
 
         }
     }
-    document.getElementById(`l${lines[i + 1]}`).style.borderColor = "red";
-    document.getElementById(`l${lines[high]}`).style.borderColor = "red";
+    document.getElementById(`l${lines[i + 1]}`).className = "selected";
+    document.getElementById(`l${lines[high]}`).className = "selected";
 
     [lines[i + 1], lines[high]] = [lines[high], lines[i + 1]];
     await wait(delay);
