@@ -1,6 +1,6 @@
 async function bogoSort(delay) {
-    while(!isSorted()) {
-        if(stop) {
+    while (!isSorted()) {
+        if (stop) {
             return;
         }
         await wait(delay);
@@ -10,7 +10,7 @@ async function bogoSort(delay) {
 }
 
 function isSorted() {
-    for(let i = 0; i < lines.length - 1; i++) {
+    for (let i = 0; i < lines.length - 1; i++) {
         if (lines[i] > lines[i + 1]) {
             return false;
         }
