@@ -31,7 +31,7 @@ sAddLine.oninput = () => {
 
 function addLines() {
     lines = [];
-    for(i = 1; i <= sAddLine.value; i++) {
+    for (i = 1; i <= sAddLine.value; i++) {
         lines.push(i);
     }
     setLinesToContainer(lines);
@@ -46,14 +46,13 @@ bStop.addEventListener("click", () => {
 
 // Randomise lines button
 bRandomise.addEventListener('click', () => {
-    lines = randomiseArray(lines);
-    setLinesToContainer(lines);
+    setLinesToContainer(randomiseArray(lines));
 });
 
 // Start sorting the lines
 bSort.addEventListener('click', async () => {
     setDisabledInputs(true);
-    if(menuSorting.value =="bubblesort") {
+    if (menuSorting.value == "bubblesort") {
         await bubbleSort(sSortSpeed.value);
     } else if (menuSorting.value == "bogosort") {
         await bogoSort(sSortSpeed.value);
@@ -81,19 +80,19 @@ function setLinesToContainer(array) {
 // Randomise values in array function
 function randomiseArray(array) {
     let currentIndex = array.length, randomIndex;
-    while(currentIndex != 0) {
+    while (currentIndex != 0) {
         randomIndex = Math.floor(Math.random() * currentIndex);
         currentIndex--;
-    
+
         [array[currentIndex], array[randomIndex]] = [
-          array[randomIndex], array[currentIndex]];
+            array[randomIndex], array[currentIndex]];
     }
     return array;
 }
 
 // Add delay to sorting algorithms
 function wait(ms) {
-	return new Promise(resolve => setTimeout(resolve, ms));
+    return new Promise(resolve => setTimeout(resolve, ms));
 }
 
 function setDisabledInputs(bool) {

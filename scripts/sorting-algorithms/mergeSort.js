@@ -13,18 +13,18 @@ async function merge(left, mid, right, delay) {
 	let j = mid + 1;
 
 	while (i < j && j <= right) {
-		if(stop) {
+		if (stop) {
 			return;
 		}
 		let a = lines[j];
 		let b = lines[i];
-        document.getElementById(`l${lines[j]}`).style.borderColor = "red";
-        document.getElementById(`l${lines[i]}`).style.borderColor = "red";
+		document.getElementById(`l${lines[j]}`).style.borderColor = "red";
+		document.getElementById(`l${lines[i]}`).style.borderColor = "red";
 		if (a > b) i++;
 		else {
 			Slide_down(i, j);
-			i++; 
-            j++;
+			i++;
+			j++;
 		}
 		await wait(delay);
 		setLinesToContainer(lines);

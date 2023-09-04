@@ -1,12 +1,12 @@
 async function insertionSort(delay) {
-    for(i = 1; i < lines.length; i++) {
-        if(stop) {
+    for (i = 1; i < lines.length; i++) {
+        if (stop) {
             return;
         }
         let key = lines[i];
         j = i - 1;
 
-        while(j >= 0 && lines[j] > key) {
+        while (j >= 0 && lines[j] > key) {
             document.getElementById(`l${lines[j]}`).style.borderColor = "red";
             document.getElementById(`l${lines[j + 1]}`).style.borderColor = "red";
             await wait(delay);
