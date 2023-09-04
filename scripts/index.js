@@ -46,8 +46,7 @@ bStop.addEventListener("click", () => {
 
 // Randomise lines button
 bRandomise.addEventListener('click', () => {
-    lines = randomiseArray(lines);
-    setLinesToContainer(lines);
+    setLinesToContainer(randomiseArray(lines));
 });
 
 // Start sorting the lines
