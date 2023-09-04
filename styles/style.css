@@ -2,6 +2,10 @@
     border-color: red !important;
 }
 
+.comparing {
+    border-color: yellow !important;
+}
+
 .container {
     margin-left: auto;
     margin-right: auto;
